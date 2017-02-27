@@ -1,0 +1,7 @@
+center,left,right,steering,throttle,brake,speed
+IMG/turn_left_1.jpg,,,-0.3920597,0.9855326,0,30.18291
+IMG/turn_right_1.jpg,,,0.3920597,0.9855326,0,30.18291
+IMG/go_straight_1.jpg,,,0,0.9855326,0,30.18674
+IMG/go_straight_2.jpg,,,0,0.9855326,0,30.18674
+IMG/turn_right_2.jpg,,,0.3583844,0.9855326,0,30.18359
+IMG/turn_left_2.jpg,,,-0.3583844,0.9855326,0,30.18359

@@ -4,6 +4,7 @@ from datetime import datetime
 import os
 import shutil
 
+import cv2
 import numpy as np
 import socketio
 import eventlet
@@ -44,7 +45,7 @@ class SimplePIController:
 
 
 controller = SimplePIController(0.1, 0.002)
-set_speed = 9
+set_speed = 30
 controller.set_desired(set_speed)
 
 
@@ -61,6 +62,10 @@ def telemetry(sid, data):
         imgString = data["image"]
         image = Image.open(BytesIO(base64.b64decode(imgString)))
         image_array = np.asarray(image)
+
+        # Preprocess the image to match preprocessing performed on the training data.
+        image_array = cv2.resize(image_array, (0,0), fx=0.5, fy=0.5)
+
         steering_angle = float(model.predict(image_array[None, :, :, :], batch_size=1))
 
         throttle = controller.update(float(speed))
